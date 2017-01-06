@@ -46,6 +46,16 @@ object MyModule {
     loop(n, 0, 1)
   }
 
+  def fibAlt(n: Int): Int = {
+    require(n >= 0)
+    @annotation.tailrec
+    def loop(i: Int, a: Int, b: Int): Int = {
+      if (i == 0) b
+      else loop(i - 1, b, a + b)
+    }
+    loop(n, 1, 0)
+  }
+
   def fibImp(n: Int): Int = {
     require(n >= 0)
     var i = n
